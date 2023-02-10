@@ -17,10 +17,10 @@ With the goal of changing the control system to an esp32 and a ROS communication
 
 # Work progression
 
-## 1. [Old System](oldSystem/README.md)
+## 1. [Old System](oldSystem/)
 
-## 2. [Planning](upgradePlan/README.md)
+## 2. [Planning](upgradePlan/)
 
-## 3. [ESP-32](esp/README.md)
+## 3. [ESP-32](esp/)
 
-## 4. [Brain](brain/README.md)
+## 4. [Brain](brain/)
