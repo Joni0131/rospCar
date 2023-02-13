@@ -5,6 +5,7 @@
   - [2.3 Circuit Diagram](#23-circuit-diagram)
 
 # 2. Planning
+In this folder, I am planning the improvements for the rospCar inclusive of the new circuit diagram.
 
 ## 2.1 Funktional requiremnets
 
@@ -17,6 +18,7 @@ The rospCar has to fulfill multiple requirements.
  - environment tracking
  - front and back lights
  - similar appearance to the old system
+ - speed information
 ## 2.2 Reqiered Hardware
 To fulfill those requirements multiple hardware components are necessary.
 - For steering, the old system can be used but it can be enhanced by exchanging the motor with a servo motor.
@@ -29,6 +31,6 @@ To fulfill those requirements multiple hardware components are necessary.
   - <ins>ToF sensor:</ins> Because ToF sensors can detect distances quite accurately it is a good option for a SLAM algorithm. However, it has to be kept in mind that transparent objects could not be detected. Another disadvantage of those sensors is that it only detects objects at the same height as the sensor. Even though I decided I want to use such a sensor. So I bought the VL53L0/1XV2 and will try to use those.
   - <ins>Camera:</ins> A camera would be good to get colors of the surroundings as well as a huge part of it. Because of the lens. I am currently not sure if I will be using a camera however if I want to add one I will be adding the 0V2640 camera to the ESP-32.
 - The lights of the old system can still be used.
+- The speed of the rospCar is detected with an accelerometer ITG/MPU6050.
 - For the electric circuit, I need a few resistors, capacitors and wires.
-
 ## 2.3 Circuit Diagram
