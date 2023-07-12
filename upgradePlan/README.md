@@ -21,7 +21,7 @@ The rospCar has to fulfill multiple requirements.
  - speed information
 ## 2.2 Reqiered Hardware
 To fulfill those requirements multiple hardware components are necessary.
-- For steering, the old system can be used but it can be enhanced by exchanging the motor with a servo motor.
+- For steering, the old system can be used. However in a next step it could be enhanced by exchanging the motor with a servo motor.
 - The impulsion motor is defective so a new motor has to be inserted. For this, I bought a new [motor](https://www.luedeke-elektronic.de/DC-Kleinmotor-2-5V-6V-DC-210mA-14-500U-Min-MOT2.html) of a similar size.
 - As a motor controllers, I am using two L9110H.
 - To regulate the voltage going to the motor I am using the voltage regulator LM317T.
