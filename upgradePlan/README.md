@@ -23,7 +23,7 @@ The rospCar has to fulfill multiple requirements.
 To fulfill those requirements multiple hardware components are necessary.
 - For steering, use a [SG90 Micro Servomotor](http://www.ee.ic.ac.uk/pcheung/teaching/DE1_EE/stores/sg90_datasheet.pdf). With such a motor the steering accuracy can be improved.
 - The impulsion motor is defective so a new motor has to be inserted. For this, I bought a new [motor](https://www.luedeke-elektronic.de/DC-Kleinmotor-2-5V-6V-DC-210mA-14-500U-Min-MOT2.html) of a similar size.
-- As a motor controller, I am using the L293D.
+- As a motor controllers, I am using two L9110H.
 - To regulate the voltage going to the motor I am using the voltage regulator LM317T.
 - Because the car should be able to communicate with another device using WIFI, I need a WIFI module. However, I want to use ROS2 as the communication system between those devices. This is a problem because on most really small microcontrollers it is not supported. I choose [micro-ROS](https://micro.ros.org/) which is capable of running on such small chips. But support for microcontrollers to communicate with WIFI is limited so I choose the [ESP-32](https://www.espressif.com/en/products/socs/esp32) as my main microcontroller.
 - For environmental tracking there are multiple options:
