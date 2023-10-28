@@ -21,7 +21,7 @@ The rospCar has to fulfill multiple requirements.
  - speed information
 ## 2.2 Reqiered Hardware
 To fulfill those requirements multiple hardware components are necessary.
-- For steering, the old system can be used but it can be enhanced by exchanging the motor with a servo motor.
+- For steering, use a [SG90 Micro Servomotor](http://www.ee.ic.ac.uk/pcheung/teaching/DE1_EE/stores/sg90_datasheet.pdf). With such a motor the steering accuracy can be improved.
 - The impulsion motor is defective so a new motor has to be inserted. For this, I bought a new [motor](https://www.luedeke-elektronic.de/DC-Kleinmotor-2-5V-6V-DC-210mA-14-500U-Min-MOT2.html) of a similar size.
 - As a motor controller, I am using the L293D.
 - To regulate the voltage going to the motor I am using the voltage regulator LM317T.
@@ -31,6 +31,10 @@ To fulfill those requirements multiple hardware components are necessary.
   - <ins>ToF sensor:</ins> Because ToF sensors can detect distances quite accurately it is a good option for a SLAM algorithm. However, it has to be kept in mind that transparent objects could not be detected. Another disadvantage of those sensors is that it only detects objects at the same height as the sensor. Even though I decided I want to use such a sensor. So I bought the VL53L0/1XV2 and will try to use those.
   - <ins>Camera:</ins> A camera would be good to get colors of the surroundings as well as a huge part of it. Because of the lens. I am currently not sure if I will be using a camera however if I want to add one I will be adding the 0V2640 camera to the ESP-32.
 - The lights of the old system can still be used.
-- The speed of the rospCar is detected with an accelerometer ITG/MPU6050.
+- The speed of the rospCar is detected with an accelerometer ITG/MPU6050/GY-521.
 - For the electric circuit, I need a few resistors, capacitors and wires.
 ## 2.3 Circuit Diagram
+### 2.3.1 V0.1
+To test that the baisic functionality of driving and steering is working my circuit design does not include any environment sensors only the acceleration sensor, the motors and the LED's.
+![Circuit Diagram V0.1](circuit_V_0_1.png)
+
