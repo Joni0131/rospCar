@@ -3,5 +3,5 @@ Notebooks/
 kicadLibs/kicad-libraries-esp
 oldSystem/initialSystem/initialSystem-backups
 
-upgradePlan/newCircuit/fp-info-cache
-upgradePlan/newCircuit/newCircuit-backups/
+upgradePlan/circuit_V0_1/fp-info-cache
+upgradePlan/circuit_V0_1/circuit_V0_1-backups/
