@@ -1,0 +1,7 @@
+#ifndef GENERALDEFINITIONS_H
+#define GENERALDEFINITIONS_H
+
+#define MAX_PUBLISHER 5
+#define MAX_SUBSCRIBER 5
+
+#endif

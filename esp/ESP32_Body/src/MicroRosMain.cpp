@@ -12,9 +12,13 @@ void error_loop() {
 }
 
 void initMicroRos() {
+    Serial.println("Start Wifi.");
     setupWifi();
+    Serial.println("Start Alloctor.");
     setupAllocator();
+    Serial.println("Start Init Options.");
     createInitOptions();
+    Serial.println("Start Node.");
     createNode();
 }
 

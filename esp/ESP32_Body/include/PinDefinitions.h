@@ -1,6 +1,8 @@
 #ifndef PINDEFINITIONS_H
 #define PINDEFINITIONS_H
 
-#define PIN_LED 34
+#define PIN_LED_FORWARD 5
+#define PIN_LED_BACKWARD 32
+#define PIN_IMPULSION_ENABLE 18
 
 #endif

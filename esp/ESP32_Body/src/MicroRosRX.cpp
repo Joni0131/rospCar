@@ -14,9 +14,11 @@ void subscription_callback(const void *msgin) {
   sprintf(buffer, "Recieved: %d Current: %d", msg->data, current_PWM.data);
   Serial.println(buffer);
   if(msg->data %2){
-    digitalWrite(PIN_LED, HIGH);
+    digitalWrite(PIN_LED_BACKWARD, HIGH);
+    Serial.println("Set HIGH");
   }else{
-    digitalWrite(PIN_LED, LOW);
+    digitalWrite(PIN_LED_BACKWARD, LOW);
+    Serial.println("Set LOW");
   }
   current_PWM.data = msg->data;
   Serial.print("RECIEVED: ");
@@ -41,7 +43,10 @@ void createSubscriber() {
 }
 
 void interStartupSubscribe(){
+    Serial.println("Start ExecSub.");
     initExecuterSub();
+    Serial.println("Start Sub.");
     createSubscriber();
+    Serial.println("Register Sub.");
     registerSubscriber();
 }
