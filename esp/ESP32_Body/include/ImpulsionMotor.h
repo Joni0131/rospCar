@@ -1,0 +1,3 @@
+#ifndef IMPULSIONMOTOR_H
+#define IMPULSIONMOTOR_H
+#endif
