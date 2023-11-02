@@ -12,7 +12,7 @@ const int resolution = 8;
 void setup()
 {
   Serial.begin(115200);
-  
+
   Serial.println("Start Setup.");
 
   // put your setup code here, to run once:
@@ -31,7 +31,7 @@ void setup()
   interStartupSubscribe();
 
   current_PWM.data = 0;
- 
+
   Serial.println("finished setup");
 }
 

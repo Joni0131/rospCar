@@ -33,5 +33,4 @@ void interimsPublishStart();
 
 void spinPub();
 
-
 #endif

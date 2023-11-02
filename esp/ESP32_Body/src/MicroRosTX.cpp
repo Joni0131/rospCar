@@ -16,7 +16,8 @@ custom_interfaces__msg__ServoMotor cusmsg;
 
 const char *motor_info_topic = "motor_info_topic";
 
-void createPublisher(rcl_publisher_t* publisher, const rosidl_message_type_support_t *type_support, const char *topic_name) {
+void createPublisher(rcl_publisher_t *publisher, const rosidl_message_type_support_t *type_support, const char *topic_name)
+{
     // create publisher
     RCCHECK(rclc_publisher_init_default(
         publisher,
@@ -25,48 +26,57 @@ void createPublisher(rcl_publisher_t* publisher, const rosidl_message_type_suppo
         topic_name));
 }
 
-void createTimer(rcl_timer_t *timer, const unsigned int timer_timeout, rcl_timer_callback_t callback) {
+void createTimer(rcl_timer_t *timer, const unsigned int timer_timeout, rcl_timer_callback_t callback)
+{
     // create timer,
-  RCCHECK(rclc_timer_init_default(
-      timer,
-      &support,
-      RCL_MS_TO_NS(timer_timeout),
-      callback));
+    RCCHECK(rclc_timer_init_default(
+        timer,
+        &support,
+        RCL_MS_TO_NS(timer_timeout),
+        callback));
 }
 
-void timer_callback(rcl_timer_t *timer, int64_t last_call_time) {
-RCLC_UNUSED(last_call_time);
-  if (timer != NULL)
-  {
-    RCSOFTCHECK(rcl_publish(&(publishers[test_id]), &cusmsg, NULL));
-  }
+void timer_callback(rcl_timer_t *timer, int64_t last_call_time)
+{
+    RCLC_UNUSED(last_call_time);
+    if (timer != NULL)
+    {
+        RCSOFTCHECK(rcl_publish(&(publishers[test_id]), &cusmsg, NULL));
+    }
 }
 
-void interimsPublishStart() {
+void interimsPublishStart()
+{
     cusmsg.id = 5;
-    cusmsg.angle =15;
+    cusmsg.angle = 15;
     Serial.println("Start ExecPub.");
     initExecuterPub();
     Serial.println("Start Pub.");
-    test_id = registerPublisher(ROSIDL_GET_MSG_TYPE_SUPPORT(custom_interfaces, msg, ServoMotor),motor_info_topic,1000,timer_callback);
+    test_id = registerPublisher(ROSIDL_GET_MSG_TYPE_SUPPORT(custom_interfaces, msg, ServoMotor), motor_info_topic, 1000, timer_callback);
 }
 
-void spinPub(){
+void spinPub()
+{
     RCSOFTCHECK(rclc_executor_spin_some(&executor_pub, RCL_MS_TO_NS(100)));
 }
 
-void initExecuterPub() {
+void initExecuterPub()
+{
     RCCHECK(rclc_executor_init(&executor_pub, &support.context, 1, &allocator));
 }
 
-int registerPublisher(const rosidl_message_type_support_t *type_support, const char *topic_name, const unsigned int timer_timeout, rcl_timer_callback_t callback) {
-    if(currentNumberPub < MAX_PUBLISHER) {
+int registerPublisher(const rosidl_message_type_support_t *type_support, const char *topic_name, const unsigned int timer_timeout, rcl_timer_callback_t callback)
+{
+    if (currentNumberPub < MAX_PUBLISHER)
+    {
         createPublisher(&(publishers[currentNumberPub]), type_support, topic_name);
         createTimer(&(timers[currentNumberPub]), timer_timeout, callback);
         RCCHECK(rclc_executor_add_timer(&executor_pub, &(timers[currentNumberPub])));
         currentNumberPub++;
         return currentNumberPub - 1;
-    }else{
+    }
+    else
+    {
         Serial.println("ERROR. No more available space to register new publisher");
         return -1;
     }
