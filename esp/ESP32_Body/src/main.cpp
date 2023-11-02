@@ -38,7 +38,7 @@ void setup()
 void loop()
 {
   delay(100);
-  RCSOFTCHECK(rclc_executor_spin_some(&executor_pub, RCL_MS_TO_NS(100)));
-  RCSOFTCHECK(rclc_executor_spin_some(&executor_sub, RCL_MS_TO_NS(100)));
+  spinPub();
+  spinSub();
   Serial.println(digitalRead(PIN_LED_BACKWARD));
 }
