@@ -1,0 +1,10 @@
+int32 id
+MPU6050Offset offset
+int8 status
+MPU6050Quaternion quaternion
+MPU6050Euler euler
+MPU6050Gravity gravity
+MPU6050YawPitchRoll yawpitchroll
+MPU6050Accel acceleration
+MPU6050LinearAccel linearacceleration
+MPU6050LinearAccelInWorld linearaccelerationinworld

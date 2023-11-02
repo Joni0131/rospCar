@@ -14,10 +14,20 @@ find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  
-  "msg/MultiArrayDimension.msg"
-  "msg/MultiArrayLayout.msg"
+
+  "msg/MPU6050Offset.msg"
+  "msg/MPU6050Quaternion.msg"
+  "msg/MPU6050Euler.msg"
+  "msg/MPU6050Gravity.msg"
+  "msg/MPU6050YawPitchRoll.msg"
+  "msg/MPU6050Accel.msg"
+  "msg/MPU6050LinearAccel.msg"
+  "msg/MPU6050LinearAccelInWorld.msg"
   "msg/ServoMotor.msg"
+  "msg/ImpulsionMotor.msg"
+  "msg/ToFSensor.msg"
+  "msg/AccelerationSensor.msg"
+  "msg/UltraSonicSensor.msg"
 )
 
 install(FILES mapping_rules.yaml DESTINATION share/${PROJECT_NAME})
