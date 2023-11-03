@@ -3,9 +3,9 @@
 
 #include "TopicDefinitions.h"
 #include "I2Cdev.h"
-#include "MPU6050_6Axis_MotionApps20.h"
+#include "MPU6050.h"
 #include "MicroRosMain.h"
-//#include "MicroRosRX.h"
+#include "MicroRosRX.h"
 #include "PinDefinitions.h"
 
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
@@ -19,6 +19,8 @@ extern rcl_publisher_t publishers[MAX_PUBLISHER];
 #define INITIALXGYRO 220
 #define INITIALYGYRO 76
 #define INITIALZGYRO -85
+#define INITIALXACCEL 0
+#define INITIALYACCEL 0
 #define INITIALZACCEL 1788
 
 void setupAccelerometer();

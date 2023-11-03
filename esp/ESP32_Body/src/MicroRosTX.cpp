@@ -71,7 +71,6 @@ int registerPublisher(const rosidl_message_type_support_t *type_support, const c
     {
         createPublisher(&(publishers[currentNumberPub]), type_support, topic_name);
         createTimer(&(timers[currentNumberPub]), timer_timeout, callback);
-        RCCHECK(rclc_executor_add_timer(&executor_pub, &(timers[currentNumberPub])));
         currentNumberPub++;
         return currentNumberPub - 1;
     }
@@ -79,5 +78,13 @@ int registerPublisher(const rosidl_message_type_support_t *type_support, const c
     {
         Serial.println("ERROR. No more available space to register new publisher");
         return -1;
+    }
+}
+
+void addAllToExecutor(){
+    for(int i = 0; i < currentNumberPub; i++){
+        Serial.println((int)&(publishers[currentNumberPub]));
+        Serial.println((int)&(timers[currentNumberPub]));
+        RCCHECK(rclc_executor_add_timer(&executor_pub, &(timers[i])));
     }
 }

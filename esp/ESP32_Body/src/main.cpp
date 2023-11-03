@@ -15,23 +15,18 @@ void setup()
 
   Serial.println("Start Setup.");
 
-  // put your setup code here, to run once:
-  pinMode(PIN_LED_FORWARD, OUTPUT);
-  pinMode(PIN_LED_BACKWARD, OUTPUT);
-  pinMode(PIN_IMPULSION_ENABLE, OUTPUT);
-
-  digitalWrite(PIN_LED_BACKWARD, LOW);
-  digitalWrite(PIN_LED_FORWARD, LOW);
-  digitalWrite(PIN_IMPULSION_ENABLE, HIGH);
-
   initMicroRos();
+  initExecuterPub();
 
-  interimsPublishStart();
+  setupAll();
 
-  interStartupSubscribe();
+  generatePublishers();
 
-  current_PWM.data = 0;
+  addAllToExecutor();
 
+  pinMode(PIN_LED_FORWARD, OUTPUT);
+  digitalWrite(PIN_LED_FORWARD, LOW);
+  
   Serial.println("finished setup");
 }
 
@@ -40,5 +35,4 @@ void loop()
   delay(100);
   spinPub();
   spinSub();
-  Serial.println(digitalRead(PIN_LED_BACKWARD));
 }

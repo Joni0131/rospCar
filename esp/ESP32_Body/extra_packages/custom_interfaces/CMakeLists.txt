@@ -16,13 +16,7 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
 
   "msg/MPU6050Offset.msg"
-  "msg/MPU6050Quaternion.msg"
-  "msg/MPU6050Euler.msg"
-  "msg/MPU6050Gravity.msg"
-  "msg/MPU6050YawPitchRoll.msg"
-  "msg/MPU6050Accel.msg"
-  "msg/MPU6050LinearAccel.msg"
-  "msg/MPU6050LinearAccelInWorld.msg"
+  "msg/MPU6050Movement.msg"
   "msg/ServoMotor.msg"
   "msg/ImpulsionMotor.msg"
   "msg/ToFSensor.msg"

@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 
+#include "NerveSystem.h"
 #include "MicroRosMain.h"
 #include "MicroRosRX.h"
 #include "MicroRosTX.h"

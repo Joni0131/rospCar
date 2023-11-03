@@ -33,4 +33,6 @@ void interimsPublishStart();
 
 void spinPub();
 
+void addAllToExecutor();
+
 #endif
