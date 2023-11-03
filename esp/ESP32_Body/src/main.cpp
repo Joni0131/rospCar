@@ -17,12 +17,14 @@ void setup()
 
   initMicroRos();
   initExecuterPub();
+  initExecuterSub();
 
   setupAll();
 
   generatePublishers();
-
   addAllToExecutor();
+
+  generateSubscribers();
 
   pinMode(PIN_LED_FORWARD, OUTPUT);
   digitalWrite(PIN_LED_FORWARD, LOW);

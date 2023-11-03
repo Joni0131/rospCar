@@ -62,7 +62,7 @@ void spinPub()
 
 void initExecuterPub()
 {
-    RCCHECK(rclc_executor_init(&executor_pub, &support.context, 1, &allocator));
+    RCCHECK(rclc_executor_init(&executor_pub, &support.context, MAX_PUBLISHER, &allocator));
 }
 
 int registerPublisher(const rosidl_message_type_support_t *type_support, const char *topic_name, const unsigned int timer_timeout, rcl_timer_callback_t callback)
@@ -83,8 +83,8 @@ int registerPublisher(const rosidl_message_type_support_t *type_support, const c
 
 void addAllToExecutor(){
     for(int i = 0; i < currentNumberPub; i++){
-        Serial.println((int)&(publishers[currentNumberPub]));
-        Serial.println((int)&(timers[currentNumberPub]));
+        Serial.println((int)&(publishers[i]));
+        Serial.println((int)&(timers[i]));
         RCCHECK(rclc_executor_add_timer(&executor_pub, &(timers[i])));
     }
 }

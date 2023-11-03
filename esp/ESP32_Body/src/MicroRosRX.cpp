@@ -35,37 +35,7 @@ int registerSubscriber(const rosidl_message_type_support_t *type_support, const 
 
 void initExecuterSub()
 {
-  RCCHECK(rclc_executor_init(&executor_sub, &support.context, 1, &allocator));
-}
-
-void subscription_callback(const void *msgin)
-{
-  // Cast received message to used type
-  const std_msgs__msg__Int32 *msg = (const std_msgs__msg__Int32 *)msgin;
-  char buffer[40];
-  sprintf(buffer, "Recieved: %d Current: %d", msg->data, current_PWM.data);
-  Serial.println(buffer);
-  if (msg->data % 2)
-  {
-    digitalWrite(PIN_LED_BACKWARD, HIGH);
-    Serial.println("Set HIGH");
-  }
-  else
-  {
-    digitalWrite(PIN_LED_BACKWARD, LOW);
-    Serial.println("Set LOW");
-  }
-  current_PWM.data = msg->data;
-  Serial.print("RECIEVED: ");
-  Serial.println(current_PWM.data);
-}
-
-void interStartupSubscribe()
-{
-  Serial.println("Start ExecSub.");
-  initExecuterSub();
-  Serial.println("Start Sub.");
-  registerSubscriber(ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int32), new_pwm_topic, &msg, subscription_callback, ON_NEW_DATA);
+  RCCHECK(rclc_executor_init(&executor_sub, &support.context, MAX_SUBSCRIBER, &allocator));
 }
 
 void spinSub()

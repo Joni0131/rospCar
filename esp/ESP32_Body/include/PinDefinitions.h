@@ -7,4 +7,6 @@
 
 #define PIN_ACCELEROMETER_INTERUPT 19
 
+#define PIN_STEERING_MOTOR 33
+
 #endif

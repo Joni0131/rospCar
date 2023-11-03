@@ -1,3 +1,0 @@
-#ifndef STEERINGMOTOR_H
-#define STEERINGMOTOR_H
-#endif
