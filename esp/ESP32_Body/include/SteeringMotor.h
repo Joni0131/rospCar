@@ -5,6 +5,7 @@
 #define SERVOMIN SERVOINIT-10
 #define SERVOMAX SERVOINIT+10
 
+#include <Arduino.h>
 #include <ESP32Servo.h>
 #include "TopicDefinitions.h"
 #include "MicroRosMain.h"

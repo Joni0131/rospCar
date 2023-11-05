@@ -26,9 +26,6 @@ void setup()
 
   generateSubscribers();
 
-  pinMode(PIN_LED_FORWARD, OUTPUT);
-  digitalWrite(PIN_LED_FORWARD, LOW);
-  
   Serial.println("finished setup");
 }
 
