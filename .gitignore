@@ -6,3 +6,4 @@ oldSystem/initialSystem/initialSystem-backups
 upgradePlan/circuit_V0_1/fp-info-cache
 upgradePlan/circuit_V0_1/circuit_V0_1-backups/
 esp/ESP32_Body/include/WifiDefinitions.h
+upgradePlan/circuit_V0_1/~*

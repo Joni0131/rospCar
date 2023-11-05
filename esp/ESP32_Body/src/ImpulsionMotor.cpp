@@ -3,6 +3,7 @@
 ImpulsionTopicInfo m_oImpulsionTopicInfo;
 ImpulsionTopicTarget m_oImpulsionTopicTarget;
 
+
 void setupImpulsionMotor()
 {
     Serial.println(F("Initializing Impulsion motor..."));
@@ -13,11 +14,10 @@ void setupImpulsionMotor()
     m_oImpulsionTopicTarget.msg.id = 0;
 
     pinMode(PIN_IMPULSION_ENABLE, OUTPUT);
-    pinMode(PIN_IMPULSION_FORWARD, OUTPUT);
-    pinMode(PIN_IMPULSION_BACKWARD, OUTPUT);
-
-    analogWrite(PIN_IMPULSION_FORWARD, 0);
-    analogWrite(PIN_IMPULSION_BACKWARD, 0);
+    ledcAttachPin(PIN_IMPULSION_FORWARD, PWM_CHANNEL_FORWARD);
+    ledcAttachPin(PIN_IMPULSION_BACKWARD, PWM_CHANNEL_BACKWARD);
+    ledcWrite(PIN_IMPULSION_FORWARD, 0);
+    ledcWrite(PIN_IMPULSION_BACKWARD, 0);
     digitalWrite(PIN_IMPULSION_ENABLE, HIGH);
 
     Serial.println(F("Impulsion motor ready."));
@@ -28,8 +28,8 @@ void impulsion_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
     RCLC_UNUSED(last_call_time);
     if (timer != NULL)
     {
-        int forward = analogRead(PIN_IMPULSION_FORWARD);
-        int backward = analogRead(PIN_IMPULSION_BACKWARD);
+        int forward = ledcRead(PWM_CHANNEL_FORWARD);
+        int backward = ledcRead(PWM_CHANNEL_BACKWARD);
         int dir = 0;
         int pwm = 0;
         if (forward > 0)
@@ -56,48 +56,49 @@ void impulsion_subscriber_callback(const void *msgin)
     {
         if (local_msg->pwm > MAXIMPULSIONSPEED)
         {
-            analogWrite(PIN_IMPULSION_BACKWARD, 0);
-            analogWrite(PIN_IMPULSION_FORWARD, MAXIMPULSIONSPEED);
+            ledcWrite(PWM_CHANNEL_BACKWARD, 0);
+            ledcWrite(PWM_CHANNEL_FORWARD, MAXIMPULSIONSPEED);
             m_oImpulsionTopicTarget.msg.pwm = MAXIMPULSIONSPEED;
         }
         else if (local_msg->pwm > 0)
         {
-            analogWrite(PIN_IMPULSION_BACKWARD, 0);
-            analogWrite(PIN_IMPULSION_FORWARD, 0);
-            m_oImpulsionTopicTarget.msg.pwm = 0;
+            ledcWrite(PWM_CHANNEL_BACKWARD, 0);
+            ledcWrite(PWM_CHANNEL_FORWARD, local_msg->pwm);
+            m_oImpulsionTopicTarget.msg.pwm = local_msg->pwm;
         }
         else
         {
-            analogWrite(PIN_IMPULSION_BACKWARD, 0);
-            analogWrite(PIN_IMPULSION_FORWARD, local_msg->pwm);
-            m_oImpulsionTopicTarget.msg.pwm = local_msg->pwm;
+            ledcWrite(PWM_CHANNEL_BACKWARD, 0);
+            ledcWrite(PWM_CHANNEL_FORWARD, 0);
+            m_oImpulsionTopicTarget.msg.pwm = 0;
         }
     }
     else if (local_msg->direction == -1)
     {
         if (local_msg->pwm > MAXIMPULSIONSPEED)
         {
-            analogWrite(PIN_IMPULSION_FORWARD, 0);
-            analogWrite(PIN_IMPULSION_BACKWARD, MAXIMPULSIONSPEED);
+            ledcWrite(PWM_CHANNEL_FORWARD, 0);
+            ledcWrite(PWM_CHANNEL_BACKWARD, MAXIMPULSIONSPEED);
             m_oImpulsionTopicTarget.msg.pwm = MAXIMPULSIONSPEED;
         }
         else if (local_msg->pwm > 0)
         {
-            analogWrite(PIN_IMPULSION_FORWARD, 0);
-            analogWrite(PIN_IMPULSION_BACKWARD, 0);
-            m_oImpulsionTopicTarget.msg.pwm = 0;
+            ledcWrite(PWM_CHANNEL_FORWARD, 0);
+            ledcWrite(PWM_CHANNEL_BACKWARD, local_msg->pwm);
+            m_oImpulsionTopicTarget.msg.pwm = local_msg->pwm;
         }
         else
         {
-            analogWrite(PIN_IMPULSION_FORWARD, 0);
-            analogWrite(PIN_IMPULSION_BACKWARD, local_msg->pwm);
-            m_oImpulsionTopicTarget.msg.pwm = local_msg->pwm;
+
+            ledcWrite(PWM_CHANNEL_FORWARD, 0);
+            ledcWrite(PWM_CHANNEL_BACKWARD, 0);
+            m_oImpulsionTopicTarget.msg.pwm = 0;
         }
     }
     else
     {
-        analogWrite(PIN_IMPULSION_FORWARD, 0);
-        analogWrite(PIN_IMPULSION_BACKWARD, 0);
+        ledcWrite(PWM_CHANNEL_FORWARD, 0);
+        ledcWrite(PWM_CHANNEL_BACKWARD, 0);
         m_oImpulsionTopicTarget.msg.pwm = 0;
     }
     m_oImpulsionTopicTarget.msg.direction = local_msg->direction;

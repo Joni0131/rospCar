@@ -2,8 +2,8 @@
 #define STEERINGMOTOR_H
 
 #define SERVOINIT 100
-#define SERVOMIN SERVOINIT-10
-#define SERVOMAX SERVOINIT+10
+#define SERVOMIN SERVOINIT-30
+#define SERVOMAX SERVOINIT+30
 
 #include <Arduino.h>
 #include <ESP32Servo.h>
