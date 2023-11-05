@@ -6,6 +6,8 @@
 #include "custom_interfaces/msg/acceleration_sensor.h"
 #include "custom_interfaces/msg/servo_motor.h"
 #include "custom_interfaces/msg/impulsion_motor.h"
+#include "custom_interfaces/msg/to_f_sensor.h"
+#include "custom_interfaces/msg/ultra_sonic_sensor.h"
 
 typedef struct AccelerometerTopic {
     const char* publishTopic = "accelerometer_info";
@@ -46,5 +48,21 @@ typedef struct ImpulsionTopicTarget {
     const unsigned int timer_timeout = 100;
     int subscriberID;
 } ImpulsionTopicTarget;
+
+typedef struct UltraSoundSensorTopicInfo {
+    const char* publishTopic = "ultrasoundsensor_info";
+    custom_interfaces__msg__UltraSonicSensor msg;
+    rosidl_message_type_support_t msg_type;
+    const unsigned int timer_timeout = 100;
+    int publisherID;
+} UltraSoundSensorTopicInfo;
+
+typedef struct ToFSensorTopicInfo {
+    const char* publishTopic = "tofsensor_info";
+    custom_interfaces__msg__ToFSensor msg;
+    rosidl_message_type_support_t msg_type;
+    const unsigned int timer_timeout = 100;
+    int publisherID;
+} ToFSensorTopicInfo;
 
 #endif

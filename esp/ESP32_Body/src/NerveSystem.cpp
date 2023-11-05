@@ -26,6 +26,8 @@ void setupAll()
     setupAccelerometer();
     setupSteeringMotor();
     setupImpulsionMotor();
+    setupToFSensor();
+    setupUltraSoundSensor();
 }
 
 void generatePublishers()
@@ -36,6 +38,10 @@ void generatePublishers()
     m_oServoTopicInfo.publisherID = registerPublisher(&(m_oServoTopicInfo.msg_type), m_oServoTopicInfo.publishTopic, m_oServoTopicInfo.timer_timeout, servo_timer_callback);
     Serial.println("Register Impulsion Motor Pub");
     m_oImpulsionTopicInfo.publisherID = registerPublisher(&(m_oImpulsionTopicInfo.msg_type), m_oImpulsionTopicInfo.publishTopic, m_oImpulsionTopicInfo.timer_timeout, impulsion_timer_callback);
+    Serial.println("Register ToF Sensor Pub");
+    m_oToFSensorTopicInfo.publisherID = registerPublisher(&(m_oToFSensorTopicInfo.msg_type), m_oToFSensorTopicInfo.publishTopic, m_oToFSensorTopicInfo.timer_timeout, tofsensor_timer_callback);
+    Serial.println("Register Ultra Sound Sensor Pub");
+    m_oUltraSoundSensorTopicInfo.publisherID = registerPublisher(&(m_oUltraSoundSensorTopicInfo.msg_type), m_oUltraSoundSensorTopicInfo.publishTopic, m_oUltraSoundSensorTopicInfo.timer_timeout, ultrasound_timer_callback);
 }
 
 void generateSubscribers()
