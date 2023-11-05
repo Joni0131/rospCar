@@ -12,6 +12,7 @@ void setupSteeringMotor() {
     m_oServoTopicTarget.msg.id = 0;
     myservo.setPeriodHertz(50);
     myservo.attach(PIN_STEERING_MOTOR);
+    myservo.write(SERVOINIT);
     Serial.println(F("Steering motor ready."));
 }
 

@@ -1,8 +1,9 @@
 #ifndef STEERINGMOTOR_H
 #define STEERINGMOTOR_H
 
-#define SERVOMIN 9076
-#define SERVOMAX 9096
+#define SERVOINIT 100
+#define SERVOMIN SERVOINIT-10
+#define SERVOMAX SERVOINIT+10
 
 #include <ESP32Servo.h>
 #include "TopicDefinitions.h"
