@@ -38,3 +38,13 @@ To fulfill those requirements multiple hardware components are necessary.
 To test that the baisic functionality of driving and steering is working my circuit design does not include any environment sensors only the acceleration sensor, the motors and the LED's.
 ![Circuit Diagram V0.1](circuit_V_0_1.png)
 
+#### 2.3.1.1 Learnings
+When building and implementing the first functionalitis I learned that I can't use the Pin's 34-39 for output signals. Also all Pins that have the ACD2 connected can't be used because of the needed Wifi. Those the relevant pins have to be rearanged.
+
+Also the LED's can't be connected in this way so that has to be changed as well.
+
+For a third optimization it might be neccessary to increase the voltage for the impulsion motor drive. However, it has to be keept in mind that that voltage is also powering the L293D those it should not be overvoltaged. It can also be considered to exchange the LM317 for another trasformer that is cappable of higher current.
+
+### 2.3.2 V0.2
+To fully implement and to consider all hardware limitations I am now adding a Ultarsonic and Time-of-Flight sensor to the system including some of the learnings from before.
+![Circuit Diagram V0.2](circuit_V_0_2.svg)
