@@ -6,9 +6,13 @@
 #include "MicroRosMain.h"
 #include "MicroRosTX.h"
 #include "PinDefinitions.h"
+#include "NewPing.h"
+
+#define ULTRA_MAX_DISTANCE_CM 50
 
 extern UltraSoundSensorTopicInfo m_oUltraSoundSensorTopicInfo;
 extern rcl_publisher_t publishers[MAX_PUBLISHER];
+extern NewPing sonar;
 
 void setupUltraSoundSensor();
 

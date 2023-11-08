@@ -6,9 +6,11 @@
 #include "MicroRosMain.h"
 #include "MicroRosTX.h"
 #include "PinDefinitions.h"
+#include <VL53L1X.h>
 
 extern ToFSensorTopicInfo m_oToFSensorTopicInfo;
 extern rcl_publisher_t publishers[MAX_PUBLISHER];
+extern VL53L1X tof_sensor;
 
 void setupToFSensor();
 
