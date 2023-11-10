@@ -8,7 +8,7 @@
 #include "PinDefinitions.h"
 #include "NewPing.h"
 
-#define ULTRA_MAX_DISTANCE_CM 50
+#define ULTRA_MAX_DISTANCE_CM 400
 
 extern UltraSoundSensorTopicInfo m_oUltraSoundSensorTopicInfo;
 extern rcl_publisher_t publishers[MAX_PUBLISHER];
