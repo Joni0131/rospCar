@@ -3,6 +3,10 @@
 MPU6050 mpu;
 AccelerometerTopic m_oAccelerromaterTopic;
 
+void caliberAccelerometer(){
+    //TODO: fill this function
+}
+
 void setupAccelerometer() {
     
     m_oAccelerromaterTopic.msg_type = *ROSIDL_GET_MSG_TYPE_SUPPORT(custom_interfaces, msg, AccelerationSensor);
@@ -17,6 +21,8 @@ void setupAccelerometer() {
     mpu.setXAccelOffset(INITIALXACCEL); 
     mpu.setYAccelOffset(INITIALYACCEL); 
     mpu.setZAccelOffset(INITIALZACCEL);
+
+    caliberAccelerometer();
 
     m_oAccelerromaterTopic.msg.offset.xaccel = INITIALXACCEL;
     m_oAccelerromaterTopic.msg.offset.yaccel = INITIALYACCEL;

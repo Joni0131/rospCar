@@ -14,7 +14,7 @@ void setupPWM()
     ESP32PWM::allocateTimer(PWM_CHANNEL1);
     ESP32PWM::allocateTimer(PWM_CHANNEL2);
     ESP32PWM::allocateTimer(PWM_CHANNEL3);
-    //ESP32PWM::allocateTimer(PWM_CHANNEL4);
+    // ESP32PWM::allocateTimer(PWM_CHANNEL4);
 
     ledcSetup(PWM_CHANNEL_FORWARD, PWM_FREQ, PWM_RESO);
     ledcSetup(PWM_CHANNEL_BACKWARD, PWM_FREQ, PWM_RESO);
@@ -22,6 +22,9 @@ void setupPWM()
 
 void setupAll()
 {
+    initMicroRos();
+    initExecuterPub();
+    initExecuterSub();
     setupI2C();
     setupPWM();
     setupAccelerometer();

@@ -4,20 +4,11 @@
 // #error This example is only avaliable for Arduino framework with serial transport.
 // #endif
 
-// Setting PWM properties
-const int freq = 30000;
-const int pwmChannel = 0;
-const int resolution = 8;
-
 void setup()
 {
   Serial.begin(115200);
 
   Serial.println("Start Setup.");
-
-  initMicroRos();
-  initExecuterPub();
-  initExecuterSub();
 
   setupAll();
 
@@ -31,7 +22,6 @@ void setup()
 
 void loop()
 {
-  delay(100);
   spinPub();
   spinSub();
 }
