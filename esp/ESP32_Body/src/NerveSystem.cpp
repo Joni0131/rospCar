@@ -14,6 +14,7 @@ void setupPWM()
     ESP32PWM::allocateTimer(PWM_CHANNEL1);
     ESP32PWM::allocateTimer(PWM_CHANNEL2);
     ESP32PWM::allocateTimer(PWM_CHANNEL3);
+    //ESP32PWM::allocateTimer(PWM_CHANNEL4);
 
     ledcSetup(PWM_CHANNEL_FORWARD, PWM_FREQ, PWM_RESO);
     ledcSetup(PWM_CHANNEL_BACKWARD, PWM_FREQ, PWM_RESO);
@@ -26,8 +27,7 @@ void setupAll()
     setupAccelerometer();
     setupSteeringMotor();
     setupImpulsionMotor();
-    setupToFSensor();
-    setupUltraSoundSensor();
+    setupEnvironment();
 }
 
 void generatePublishers()
@@ -38,10 +38,8 @@ void generatePublishers()
     m_oServoTopicInfo.publisherID = registerPublisher(&(m_oServoTopicInfo.msg_type), m_oServoTopicInfo.publishTopic, m_oServoTopicInfo.timer_timeout, servo_timer_callback);
     Serial.println("Register Impulsion Motor Pub");
     m_oImpulsionTopicInfo.publisherID = registerPublisher(&(m_oImpulsionTopicInfo.msg_type), m_oImpulsionTopicInfo.publishTopic, m_oImpulsionTopicInfo.timer_timeout, impulsion_timer_callback);
-    Serial.println("Register ToF Sensor Pub");
-    m_oToFSensorTopicInfo.publisherID = registerPublisher(&(m_oToFSensorTopicInfo.msg_type), m_oToFSensorTopicInfo.publishTopic, m_oToFSensorTopicInfo.timer_timeout, tofsensor_timer_callback);
-    Serial.println("Register Ultra Sound Sensor Pub");
-    m_oUltraSoundSensorTopicInfo.publisherID = registerPublisher(&(m_oUltraSoundSensorTopicInfo.msg_type), m_oUltraSoundSensorTopicInfo.publishTopic, m_oUltraSoundSensorTopicInfo.timer_timeout, ultrasound_timer_callback);
+    Serial.println("Register Environment Sensor Pub");
+    m_oEnvironmentDetectionInfo.publisherID = registerPublisher(&(m_oEnvironmentDetectionInfo.msg_type), m_oEnvironmentDetectionInfo.publishTopic, m_oEnvironmentDetectionInfo.timer_timeout, environment_timer_callback);
 }
 
 void generateSubscribers()

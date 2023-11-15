@@ -81,8 +81,10 @@ int registerPublisher(const rosidl_message_type_support_t *type_support, const c
     }
 }
 
-void addAllToExecutor(){
-    for(int i = 0; i < currentNumberPub; i++){
+void addAllToExecutor()
+{
+    for (int i = 0; i < currentNumberPub; i++)
+    {
         RCCHECK(rclc_executor_add_timer(&executor_pub, &(timers[i])));
     }
 }

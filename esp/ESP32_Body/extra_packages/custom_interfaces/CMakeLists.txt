@@ -22,6 +22,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/ToFSensor.msg"
   "msg/AccelerationSensor.msg"
   "msg/UltraSonicSensor.msg"
+  "msg/EnvironmentMeasurment.msg"
 )
 
 install(FILES mapping_rules.yaml DESTINATION share/${PROJECT_NAME})

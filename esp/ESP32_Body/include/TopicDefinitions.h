@@ -6,16 +6,7 @@
 #include "custom_interfaces/msg/acceleration_sensor.h"
 #include "custom_interfaces/msg/servo_motor.h"
 #include "custom_interfaces/msg/impulsion_motor.h"
-#include "custom_interfaces/msg/to_f_sensor.h"
-#include "custom_interfaces/msg/ultra_sonic_sensor.h"
-
-typedef struct AccelerometerTopic {
-    const char* publishTopic = "accelerometer_info";
-    custom_interfaces__msg__AccelerationSensor msg;
-    rosidl_message_type_support_t msg_type;
-    const unsigned int timer_timeout = 10;
-    int publisherID;
-} AccelerometerTopic;
+#include "custom_interfaces/msg/environment_measurment.h"
 
 typedef struct ServoTopicInfo {
     const char* publishTopic = "servomotor_info";
@@ -49,20 +40,20 @@ typedef struct ImpulsionTopicTarget {
     int subscriberID;
 } ImpulsionTopicTarget;
 
-typedef struct UltraSoundSensorTopicInfo {
-    const char* publishTopic = "ultrasoundsensor_info";
-    custom_interfaces__msg__UltraSonicSensor msg;
+typedef struct AccelerometerTopic {
+    const char* publishTopic = "accelerometer_info";
+    custom_interfaces__msg__AccelerationSensor msg;
     rosidl_message_type_support_t msg_type;
-    const unsigned int timer_timeout = 100;
+    const unsigned int timer_timeout = 10;
     int publisherID;
-} UltraSoundSensorTopicInfo;
+} AccelerometerTopic;
 
-typedef struct ToFSensorTopicInfo {
-    const char* publishTopic = "tofsensor_info";
-    custom_interfaces__msg__ToFSensor msg;
+typedef struct EnvironmentDetectionInfo {
+    const char* publishTopic = "environment_info";
+    custom_interfaces__msg__EnvironmentMeasurment msg;
     rosidl_message_type_support_t msg_type;
-    const unsigned int timer_timeout = 100;
+    const unsigned int timer_timeout = 10;
     int publisherID;
-} ToFSensorTopicInfo;
+} EnvironmentDetectionInfo;
 
 #endif
