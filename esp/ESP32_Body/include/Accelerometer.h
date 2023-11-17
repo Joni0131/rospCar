@@ -16,12 +16,14 @@ extern AccelerometerTopic m_oAccelerromaterTopic;
 extern std_msgs__msg__Int32 msg;
 extern rcl_publisher_t publishers[MAX_PUBLISHER]; 
 
-#define INITIALXGYRO 220
-#define INITIALYGYRO 76
-#define INITIALZGYRO -85
-#define INITIALXACCEL 0
-#define INITIALYACCEL 0
-#define INITIALZACCEL 1788
+#define INITIALXGYRO 31
+#define INITIALYGYRO 3
+#define INITIALZGYRO 14
+#define INITIALXACCEL -2285
+#define INITIALYACCEL -5011
+#define INITIALZACCEL 4867
+#define ACCEL_LSB 8192
+#define GYROS_LSB 131
 
 void setupAccelerometer();
 
