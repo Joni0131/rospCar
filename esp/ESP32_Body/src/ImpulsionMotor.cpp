@@ -18,7 +18,7 @@ void setupImpulsionMotor()
     ledcAttachPin(PIN_IMPULSION_BACKWARD, PWM_CHANNEL_BACKWARD);
     ledcWrite(PIN_IMPULSION_FORWARD, 0);
     ledcWrite(PIN_IMPULSION_BACKWARD, 0);
-    digitalWrite(PIN_IMPULSION_ENABLE, HIGH);
+    digitalWrite(PIN_IMPULSION_ENABLE, LOW);
 
     Serial.println(F("Impulsion motor ready."));
 }
