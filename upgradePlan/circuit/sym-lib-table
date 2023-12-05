@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "Espressif")(type "KiCad")(uri "/home/joni0131/Documents/rospCar/kicadLibs/kicad-libraries-esp/libraries/Espressif.kicad_sym")(options "")(descr ""))
+)
