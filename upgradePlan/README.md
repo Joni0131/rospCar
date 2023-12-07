@@ -64,6 +64,7 @@ After a few schematic iterations I started designing the PCB.
 To design the PCB I added footprints to all the schematic symbols in KiCad and than placed it on a board. I then used FreeRouting to do a first automated routing for the PCB. I decided that the width of each lane is with 1 mm more than enough to handle the load of the system.
 
 Because this is my first designed board and also the first prototype I did not optimize the length of each line and those reduced latency. In this setup it is more than enough like that and can be done in the future.
+
 ![PCB Layout V0.3](pcblayout_V_0_3.svg)
 
 Here a not complete 3D image of the planed PCB.
