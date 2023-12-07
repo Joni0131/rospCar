@@ -19,7 +19,7 @@ The rospCar has to fulfill multiple requirements.
  - front and back lights
  - similar appearance to the old system
  - speed information
-## 2.2 Reqiered Hardware
+## 2.2 Required Hardware
 To fulfill those requirements multiple hardware components are necessary.
 - For steering, use a [SG90 Micro Servomotor](http://www.ee.ic.ac.uk/pcheung/teaching/DE1_EE/stores/sg90_datasheet.pdf). With such a motor the steering accuracy can be improved.
 - The impulsion motor is defective so a new motor has to be inserted. For this, I bought a new [motor](https://www.luedeke-elektronic.de/DC-Kleinmotor-2-5V-6V-DC-210mA-14-500U-Min-MOT2.html) of a similar size.
@@ -48,3 +48,23 @@ For a third optimization it might be neccessary to increase the voltage for the 
 ### 2.3.2 V0.2
 To fully implement and to consider all hardware limitations I am now adding a Ultarsonic and Time-of-Flight sensor to the system including some of the learnings from before.
 ![Circuit Diagram V0.2](circuit_V_0_2.svg)
+
+#### 2.3.2.1 Learning
+The motor is still not starting without help and the motor will get power in the boot process because the motor driver is enabled when it is booting.
+
+### 2.3.3 V0.3
+To get the motor starting I separated the Power circuit for the L293D and the motor power circuit. I also added a inverter based on a transistor for the enable signal for the motor driver because the esp pin will always be in the HIGH state in the boot process.
+![Circuit Diagram V0.3](circuit_V_0_3.svg)
+
+## 2.4 PCB design
+
+After a few schematic iterations I started designing the PCB.
+
+### 2.4.1 V0.3
+To design the PCB I added footprints to all the schematic symbols in KiCad and than placed it on a board. I then used FreeRouting to do a first automated routing for the PCB. I decided that the width of each lane is with 1 mm more than enough to handle the load of the system.
+
+Because this is my first designed board and also the first prototype I did not optimize the length of each line and those reduced latency. In this setup it is more than enough like that and can be done in the future.
+![PCB Layout V0.3](pcblayout_V_0_3.svg)
+
+Here a not complete 3D image of the planed PCB.
+![3D PCB V0.3](3d_pcb_v_0_3.png) 
