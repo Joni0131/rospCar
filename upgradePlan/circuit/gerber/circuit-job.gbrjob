@@ -5,7 +5,7 @@
       "Application": "Pcbnew",
       "Version": "7.0.9-7.0.9~ubuntu22.04.1"
     },
-    "CreationDate": "2023-12-07T20:50:56+01:00"
+    "CreationDate": "2024-01-11T12:11:02+01:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -42,6 +42,16 @@
       "FilePolarity": "Positive"
     },
     {
+      "Path": "circuit-F_Adhesive.gbr",
+      "FileFunction": "Glue,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "circuit-B_Adhesive.gbr",
+      "FileFunction": "Glue,Bot",
+      "FilePolarity": "Positive"
+    },
+    {
       "Path": "circuit-F_Paste.gbr",
       "FileFunction": "SolderPaste,Top",
       "FilePolarity": "Positive"
@@ -74,6 +84,16 @@
     {
       "Path": "circuit-Edge_Cuts.gbr",
       "FileFunction": "Profile",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "circuit-F_Fab.gbr",
+      "FileFunction": "AssemblyDrawing,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "circuit-B_Fab.gbr",
+      "FileFunction": "AssemblyDrawing,Bot",
       "FilePolarity": "Positive"
     }
   ],

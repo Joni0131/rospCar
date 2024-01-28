@@ -69,3 +69,10 @@ Because this is my first designed board and also the first prototype I did not o
 
 Here a not complete 3D image of the planed PCB.
 ![3D PCB V0.3](3d_pcb_v_0_3.png) 
+
+And here the first soldered PCB.
+![PCB V0.3 Soldered](pcb_V_0_3_soldered.jpg)
+
+#### 2.4.1.1 Learningdd
+
+The pcb is still way to big. Those the next iteration needs to be smaller. Another learning is that the motor controller and the 3 voltage regulators are getting quite hot after a short test. Those I will add some kind of heat sink to them. 
