@@ -10,18 +10,19 @@ void setup()
 
   Serial.println("Start Setup.");
 
-  setupAll();
+  //setupAll();
 
-  generatePublishers();
-  addAllToExecutor();
+  //generatePublishers();
+  //addAllToExecutor();
 
-  generateSubscribers();
+  //generateSubscribers();
 
   Serial.println("finished setup");
 }
 
 void loop()
 {
-  spinPub();
-  spinSub();
+  //spinPub();
+  //spinSub();
+  Serial.println(digitalRead(18));
 }
