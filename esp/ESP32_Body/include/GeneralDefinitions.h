@@ -3,5 +3,6 @@
 
 #define MAX_PUBLISHER 7
 #define MAX_SUBSCRIBER 5
+#define MAX_SERVICES 2
 
 #endif

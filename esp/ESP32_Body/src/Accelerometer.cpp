@@ -3,7 +3,7 @@
 MPU6050 mpu;
 AccelerometerTopic m_oAccelerromaterTopic;
 
-void caliberAccelerometer(){
+void defaultCaliberAccelerometer(){
     mpu.setXGyroOffset(INITIALXGYRO);
     mpu.setYGyroOffset(INITIALYGYRO);
     mpu.setZGyroOffset(INITIALZGYRO);
@@ -27,7 +27,8 @@ void setupAccelerometer() {
     pinMode(PIN_ACCELEROMETER_INTERUPT, INPUT);
     Serial.println(F("Initializing Accelerometer..."));
 
-    caliberAccelerometer();
+    // Set default callibaration values
+    defaultCaliberAccelerometer();
 
     Serial.println(F("Accelerometer ready."));
 }
@@ -43,4 +44,25 @@ void accelerometer_timer_callback(rcl_timer_t *timer, int64_t last_call_time) {
 
         RCSOFTCHECK(rcl_publish(&(publishers[m_oAccelerromaterTopic.publisherID]), &m_oAccelerromaterTopic.msg, NULL));
     }
+}
+
+void caliberAccelerometer(){
+    //TODO: Implement calibration
+    mpu.setXGyroOffset(INITIALXGYRO);
+    mpu.setYGyroOffset(INITIALYGYRO);
+    mpu.setZGyroOffset(INITIALZGYRO);
+    mpu.setXAccelOffset(INITIALXACCEL); 
+    mpu.setYAccelOffset(INITIALYACCEL); 
+    mpu.setZAccelOffset(INITIALZACCEL);
+
+    m_oAccelerromaterTopic.msg.offset.xaccel = INITIALXACCEL;
+    m_oAccelerromaterTopic.msg.offset.yaccel = INITIALYACCEL;
+    m_oAccelerromaterTopic.msg.offset.zaccel = INITIALZACCEL;
+    m_oAccelerromaterTopic.msg.offset.xgyro = INITIALXGYRO;
+    m_oAccelerromaterTopic.msg.offset.ygyro = INITIALYGYRO;
+    m_oAccelerromaterTopic.msg.offset.zgyro = INITIALZGYRO;
+}
+
+void my_service_callback(const void * req, void * res) {
+  // Process the request and fill the response
 }

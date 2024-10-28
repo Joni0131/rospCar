@@ -31,4 +31,8 @@ void accelerometer_timer_callback(rcl_timer_t *timer, int64_t last_call_time);
 
 void caliberAccelerometer();
 
+void defaultCaliberAccelerometer();
+
+void callibration_callback(const void * req, void * res);
+
 #endif

@@ -50,3 +50,10 @@ void setupAllocator()
 {
     allocator = rcl_get_default_allocator();
 }
+
+void setupService()
+{
+    const rosidl_service_type_support_t * my_service_type_support = ROSIDL_GET_SRV_TYPE_SUPPORT(std_srvs, srv, Empty);
+    // create service
+    RCCHECK(rclc_service_init(&service, &node, ROSIDL_GET_SRV_TYPE_SUPPORT(std_srvs, srv, Empty), "add_two_ints"));
+}
